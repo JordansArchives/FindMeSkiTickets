@@ -6,11 +6,9 @@
 
 <!-- This is where the form (html) of the component will go -->
 <template>
-  <div class="wrapper">
-    <button class="brutal-btn">
-      <slot></slot>
-    </button>
-  </div>
+  <button class="brutal-btn">
+    <slot></slot>
+  </button>
 </template>
 
 <!-- This is where CSS will go -->
@@ -49,13 +47,5 @@ brutalist-btn:hover:active {
   background-color: white;
   border: 2px solid black;
   transition: all 0.3s ease;
-}
-
-.wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
 }
 </style>
