@@ -1,5 +1,5 @@
 <script setup>
-import Button from './button.vue'
+import Button from './button.vue';
 
 // This is where any needed functionality will go
 // this component has none currently
@@ -7,10 +7,12 @@ import Button from './button.vue'
 
 <!-- This is where the form (html) of the component will go -->
 <template>
-  <div class="bg-gray-300 sticky border-gray-900 border-b-4">
-    <header>
+  <header>
+    <div class="bg-gray-300 sticky border-gray-900 border-b-4">
       <nav class="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
-        <div class="flex w-full items-center justify-between border-b border-gray-500 py-6 lg:border-none">
+        <div
+          class="flex w-full items-center justify-between border-b border-gray-500 py-6 lg:border-none"
+        >
           <div class="flex items-center">
             <a href="#">
               <span class="sr-only">Your Company</span>
@@ -27,11 +29,9 @@ import Button from './button.vue'
           </div>
         </div>
       </nav>
-    </header>
-  </div>
+    </div>
+  </header>
 </template>
 
 <!-- This is where CSS will go -->
-<style>
-
-</style>
+<style></style>
