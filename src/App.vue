@@ -1,16 +1,25 @@
 <script setup>
-import Header from './components/header.vue'
-
+import Header from './components/header.vue';
 </script>
 
 <template>
   <Header />
-  <div>
-    Stuff will go here
+  <div class="LandingPageImg">
+    <img :src="LandingPageUrl" alt="Find Me Lift Tickets Image" />
   </div>
 </template>
 
-<style scoped>
+<script LandingPageImage>
+export default {
+  data() {
+    return {
+      LandingPageUrl: '/public/LandingPage.png',
+    };
+  },
+};
+</script>
+
+<style>
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -24,5 +33,12 @@ import Header from './components/header.vue'
 
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+.LandingPageImg {
+  margin-top: 100pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
