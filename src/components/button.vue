@@ -1,7 +1,6 @@
 <script setup>
 // This is where any needed functionality will go
 // this component has none currently
-
 </script>
 
 <!-- This is where the form (html) of the component will go -->
@@ -26,6 +25,7 @@
 
 .brutal-btn:after {
   content: '';
+  border-radius: 4px;
   position: absolute;
   background: black;
   top: 8px;
@@ -37,13 +37,15 @@
 
 .brutal-btn:hover,
 brutalist-btn:active {
-  color: white;
-  background-color: black;
+  color: black;
+  border-radius: 4px;
+  background-color: #9fbaff;
   transition: all 0.3s ease;
 }
 
 .brutal-btn:hover:after,
 brutalist-btn:hover:active {
+  border-radius: 4px;
   background-color: white;
   border: 2px solid black;
   transition: all 0.3s ease;
