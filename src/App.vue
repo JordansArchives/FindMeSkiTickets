@@ -4,7 +4,7 @@ import Header from './components/header.vue';
 
 <template>
   <Header />
-  <div class="LandingPageImg">
+  <div class="mx-auto p-8 flex justify-center">
     <img :src="LandingPageUrl" alt="Find Me Lift Tickets Image" />
   </div>
 </template>
@@ -19,26 +19,4 @@ export default {
 };
 </script>
 
-<style>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-
-.LandingPageImg {
-  margin-top: 100pt;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style></style>
