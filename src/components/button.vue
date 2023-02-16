@@ -28,6 +28,7 @@
   border-radius: 4px;
   position: absolute;
   background: black;
+  border: 2px solid black;
   top: 8px;
   left: 8px;
   right: -8px;
