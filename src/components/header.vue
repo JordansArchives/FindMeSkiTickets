@@ -21,7 +21,7 @@ import Button from './button.vue';
           </div>
           <div class="ml-10 space-x-4">
             <a href="/about" class="inline-block">
-              <Button>About</Button>
+              <Button>ABOUT</Button>
             </a>
             <a href="/faq" class="inline-block">
               <Button>FAQ</Button>
