@@ -7,8 +7,7 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid';
-import dropIcon from '/assets/dropIcon.png';
+import dropIcon from './dropDown.vue';
 
 const people = [{ name: 'COLORADO' }, { name: 'WYOMING' }, { name: 'UTAH' }, { name: 'MONTANA' }];
 const selectedPerson = ref(people[0]);
@@ -19,7 +18,10 @@ const selectedPerson = ref(people[0]);
     <Listbox v-model="selectedPerson">
       <div class="relative mt-1">
         <ListboxButton class="listboxbuttonStyle items-left mt-1 max-h-60 w-full overflow-auto">
-          <span class="block truncate text-left pl-2">{{ selectedPerson.name }}</span>
+          <span class="flex justify-between truncate text-left pl-2">
+            <span>{{ selectedPerson.name }}</span>
+            <dropIcon class="h-6 w-6" />
+          </span>
           <span class="pointer-events-none absolute inset-y-0 right-0 flex items-left pr-2">
             <drop class="h-5 w-5 text-gray-900" aria-hidden="true" />
           </span>
@@ -74,26 +76,26 @@ const selectedPerson = ref(people[0]);
 }
 
 .listboxbuttonStyle:after {
-  background-color: white;
-  border: 4px solid black;
+  content: '';
   border-radius: 4px;
-  /* padding: 10px 25px; */
-  font-weight: bold;
-  font-size: 20px;
-  position: relative;
-  color: black;
+  position: absolute;
+  background: black;
+  border: 2px solid black;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  z-index: -1;
 }
 
-.listboxbuttonStyle:hover,
-brutalist-btn:active {
+.listboxbuttonStyle:hover {
   color: black;
   border-radius: 4px;
   background-color: #9fbaff;
   transition: all 0.3s ease;
 }
 
-.listboxbuttonStyle:hover:after,
-brutalist-btn:hover:active {
+.listboxbuttonStyle:hover:after {
   border-radius: 4px;
   background-color: white;
   border: 2px solid black;

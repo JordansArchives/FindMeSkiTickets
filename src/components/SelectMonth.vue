@@ -9,17 +9,30 @@ import {
 } from '@headlessui/vue';
 import dropIcon from './dropDown.vue';
 
-const people = [{ name: 'ADULT (13+)' }, { name: '14 AND UNDER' }, { name: 'CHILD (5-12)' }];
-const selectedPerson = ref(people[0]);
+const people = [
+  { name: 'JANUARY' },
+  { name: 'FEBUARY' },
+  { name: 'MARCH' },
+  { name: 'APRIL' },
+  { name: 'MAY' },
+  { name: 'JUNE' },
+  { name: 'JULY' },
+  { name: 'AUGUST' },
+  { name: 'SEPTEMBER' },
+  { name: 'OCTOBER' },
+  { name: 'NOVEMBER' },
+  { name: 'DECEMBER' },
+];
+const selectedMonth = ref(people[0]);
 </script>
 
 <template>
-  <div class="w-full">
-    <Listbox v-model="selectedPerson">
+  <div class="w-96">
+    <Listbox v-model="selectedMonth">
       <div class="relative mt-1">
         <ListboxButton class="listboxbuttonStyle absolute mt-1 max-h-60 w-full overflow-auto">
           <span class="flex justify-between truncate text-left pl-2">
-            <span>{{ selectedPerson.name }}</span>
+            <span>{{ selectedMonth.name }}</span>
             <dropIcon class="h-6 w-6" />
           </span>
           <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -32,7 +45,7 @@ const selectedPerson = ref(people[0]);
           leave-from-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <ListboxOptions class="listboxbuttonStyle absolute mt-1 max-h-60 w-full overflow-auto">
+          <ListboxOptions class="listboxbuttonStyle absolute mt-1 w-full overflow-auto">
             <ListboxOption
               v-slot="{ active, selected }"
               v-for="person in people"
@@ -73,6 +86,7 @@ const selectedPerson = ref(people[0]);
   font-size: 20px;
   position: relative;
   color: black;
+  overflow: visible;
 }
 
 .listboxbuttonStyle:after {
@@ -91,7 +105,6 @@ const selectedPerson = ref(people[0]);
 .listboxbuttonStyle:hover {
   color: black;
   border-radius: 4px;
-  /* background-color: #9fbaff; */
   transition: all 0.3s ease;
 }
 
