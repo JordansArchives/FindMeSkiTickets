@@ -27,6 +27,6 @@ import SelectMonth from '../components/SelectMonth.vue';
 const greet =
   'Let us save you the headache, we find you the most affordable lift tickets in your area!';
 
-const LandingPageUrl = '/public/assets/LandingPage.png';
+const LandingPageUrl = '/assets/LandingPage.png';
 </script>
 <style lang=""></style>

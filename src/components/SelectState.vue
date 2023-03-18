@@ -1,6 +1,6 @@
 <template>
   <div class="w-96">
-    <FmstSelect v-model="selectedState" options="options"></FmstSelect>
+    <FmstSelect v-model="selectedState" :options="options" />
   </div>
 </template>
 
@@ -26,5 +26,7 @@ const options = [
     value: 'NV',
   },
 ];
-const selectedState = ref('CO');
+
+// Set our initially selected state to Colorado B) aaa yea
+const selectedState = ref(options[0]);
 </script>

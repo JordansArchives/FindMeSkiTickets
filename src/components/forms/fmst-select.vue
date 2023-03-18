@@ -1,10 +1,10 @@
 <template>
   <div class="w-96">
-    <Listbox v-model="selectedValue">
+    <Listbox v-model="selectedValue" by="value">
       <div class="relative mt-1">
         <ListboxButton class="listboxbuttonStyle items-left mt-1 max-h-60 w-full overflow-auto">
           <span class="flex justify-between truncate text-left pl-2">
-            <span>{{ selectedValue }}</span>
+            <span>{{ selectedValue.label }}</span>
             <dropIcon class="h-6 w-6" />
           </span>
         </ListboxButton>
@@ -19,7 +19,7 @@
               v-slot="{ active, selected }"
               v-for="option in options"
               :key="option.label"
-              :value="option.value"
+              :value="option"
               as="template"
             >
               <li
@@ -28,9 +28,9 @@
                   'relative cursor-default select-none py-2 pr-4 pl-2',
                 ]"
               >
-                <span :class="[selected ? 'font-medium' : 'font-normal', 'block truncate']">{{
-                  person.name
-                }}</span>
+                <span :class="[selected ? 'font-medium' : 'font-normal', 'block truncate']">
+                  {{ option.label }}
+                </span>
                 <span
                   v-if="selected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3 text-black"
@@ -46,14 +46,18 @@
 </template>
 
 <script setup>
+// Listbox docs: https://headlessui.com/vue/listbox
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue';
 import dropIcon from '../dropDown.vue';
-
 import { ref, watch, defineEmits } from 'vue';
 
+// We need two-way data syncing on this value, so set up the emit
+// and tell it what props we need
+// https://vuejs.org/guide/components/v-model.html
+const emit = defineEmits(['update:modelValue']);
 const props = defineProps({
-  value: {
-    type: String,
+  modelValue: {
+    type: Object,
     default: '',
   },
   options: {
@@ -62,19 +66,15 @@ const props = defineProps({
   },
 });
 
-const selectedValue = ref(props.value);
+// Set our selected value in our component to what
+// our parent element wants selected
+const selectedValue = ref(props.modelValue);
 
-watch(props.value, (newValue) => {
-  updateValue(newValue);
+// If our parent element tells us we have a new value selected,
+// then update our component here.
+watch(props, (newValue) => {
+  selectedValue.value = newValue.modelValue;
 });
-
-const updateValue = (newValue) => {
-  selectedValue.value = newValue;
-  // selectedValue.value = event.target.value;
-  emit('update:value', selectedValue.value);
-};
-
-const { emit } = defineEmits(['update:value']);
 </script>
 
 <style>
