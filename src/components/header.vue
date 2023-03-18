@@ -14,15 +14,15 @@ import Button from './button.vue';
           class="flex w-full items-center justify-between border-b border-gray-500 py-6 lg:border-none"
         >
           <div class="flex items-center">
-            <a href="#">
+            <router-link to="/">
               <span class="sr-only">Your Company</span>
               <h1 class="uppercase text-4xl font-black">Find me lift tickets</h1>
-            </a>
+            </router-link>
           </div>
           <div class="ml-10 space-x-4">
-            <a href="/about" class="inline-block">
+            <router-link to="/about" class="inline-block">
               <Button>ABOUT</Button>
-            </a>
+            </router-link>
             <a href="/faq" class="inline-block">
               <Button>FAQ</Button>
             </a>

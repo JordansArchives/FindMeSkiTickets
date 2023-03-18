@@ -22,9 +22,6 @@ const selectedPerson = ref(people[0]);
             <span>{{ selectedPerson.name }}</span>
             <dropIcon class="h-6 w-6" />
           </span>
-          <span class="pointer-events-none absolute inset-y-0 right-0 flex items-left pr-2">
-            <drop class="h-5 w-5 text-gray-900" aria-hidden="true" />
-          </span>
         </ListboxButton>
 
         <transition
