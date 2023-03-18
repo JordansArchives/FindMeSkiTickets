@@ -49,7 +49,7 @@
 // Listbox docs: https://headlessui.com/vue/listbox
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue';
 import dropIcon from '../dropDown.vue';
-import { ref, watch, defineEmits } from 'vue';
+import { ref, watch } from 'vue';
 
 // We need two-way data syncing on this value, so set up the emit
 // and tell it what props we need

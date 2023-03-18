@@ -6,10 +6,12 @@ import './style.css';
 import App from './App.vue';
 import Home from './views/home.vue';
 import About from './views/about.vue';
+import Calendar from './views/Calendar.vue';
 
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
+  { path: '/calendar', component: Calendar },
 ];
 
 const router = createRouter({

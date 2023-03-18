@@ -7,3 +7,5 @@ function GetPriceByDay(month) {
 
   return fakePrices;
 }
+
+export { GetPriceByDay };
