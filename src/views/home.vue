@@ -9,7 +9,9 @@
 
     <div class="flex">
       <div class="mx-auto flex-col justify-items-stretch">
-        <SelectState />
+        <div class="w-96">
+          <FmstSelect v-model="selectedState" :options="stateOptions" />
+        </div>
         <SelectAge />
         <SelectMonth />
         <blackButton class="w-full mt-10">SEARCH</blackButton>
@@ -19,14 +21,35 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import blackButton from '../components/blackButton.vue';
-import SelectState from '../components/SelectState.vue';
 import SelectAge from '../components/SelectAge.vue';
 import SelectMonth from '../components/SelectMonth.vue';
+import FmstSelect from '../components/forms/fmst-select.vue';
 
 const greet =
   'Let us save you the headache, we find you the most affordable lift tickets in your area!';
 
 const LandingPageUrl = '/assets/LandingPage.png';
+
+const stateOptions = [
+  {
+    label: 'Colorado',
+    value: 'CO',
+  },
+  {
+    label: 'Wyoming',
+    value: 'WY',
+  },
+  {
+    label: 'Utah',
+    value: 'UT',
+  },
+  {
+    label: 'Nevada',
+    value: 'NV',
+  },
+];
+const selectedState = ref(stateOptions[0]);
 </script>
 <style lang=""></style>

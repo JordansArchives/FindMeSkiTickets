@@ -15,7 +15,7 @@ import Button from './button.vue';
         >
           <div class="flex items-center">
             <router-link to="/">
-              <span class="sr-only">Your Company</span>
+              <span class="sr-only">Find Me Ski Tickets</span>
               <h1 class="uppercase text-4xl font-black">Find me lift tickets</h1>
             </router-link>
           </div>
