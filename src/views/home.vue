@@ -11,10 +11,24 @@
       <div class="mx-auto flex-col justify-items-stretch">
         <div class="w-96">
           <FmstSelect v-model="selectedState" :options="stateOptions" />
+          <FmstSelect v-model="selectedMonth" :options="monthOptions" />
+          <FmstSelect v-model="selectedAge" :options="ageOptions" />
         </div>
-        <SelectAge />
-        <SelectMonth />
-        <blackButton class="w-full mt-10">SEARCH</blackButton>
+        <!-- <SelectAge /> -->
+        <!-- <SelectMonth /> -->
+        <!-- @TODO: Add the two query params for age and month once you have the select components -->
+        <router-link
+          :to="{
+            path: '/calendar',
+            query: {
+              state: selectedState.value,
+              age: selectedAge.value,
+              month: selectedMonth.value,
+            },
+          }"
+        >
+          <blackButton class="w-full mt-10">SEARCH</blackButton>
+        </router-link>
       </div>
     </div>
   </div>
@@ -23,8 +37,6 @@
 <script setup>
 import { ref } from 'vue';
 import blackButton from '../components/blackButton.vue';
-import SelectAge from '../components/SelectAge.vue';
-import SelectMonth from '../components/SelectMonth.vue';
 import FmstSelect from '../components/forms/fmst-select.vue';
 
 const greet =
@@ -33,23 +45,34 @@ const greet =
 const LandingPageUrl = '/assets/LandingPage.png';
 
 const stateOptions = [
-  {
-    label: 'Colorado',
-    value: 'CO',
-  },
-  {
-    label: 'Wyoming',
-    value: 'WY',
-  },
-  {
-    label: 'Utah',
-    value: 'UT',
-  },
-  {
-    label: 'Nevada',
-    value: 'NV',
-  },
+  { label: 'COLORADO', value: 'CO' },
+  { label: 'WYOMING', value: 'WY' },
+  { label: 'UTAH', value: 'UT' },
+  { label: 'MONTANA', value: 'MT' },
 ];
 const selectedState = ref(stateOptions[0]);
+
+const ageOptions = [
+  { label: 'ADULT (13+)', value: 'AD' },
+  { label: 'CHILD (5-12)', value: 'CH' },
+  { label: '4 AND UNDER', value: 'UN' },
+];
+const selectedAge = ref(ageOptions[0]);
+
+const monthOptions = [
+  { label: 'JANUARY', value: 'JA' },
+  { label: 'FEBUARY', value: 'FE' },
+  { label: 'MARCH', value: 'MAR' },
+  { label: 'APRIL', value: 'AP' },
+  { label: 'MAY', value: 'MAY' },
+  { label: 'JUNE', value: 'JN' },
+  { label: 'JULY', value: 'JL' },
+  { label: 'AUGUST', value: 'AG' },
+  { label: 'SEPTEMBER', value: 'SP' },
+  { label: 'OCTOBER', value: 'OT' },
+  { label: 'NOVEMBER', value: 'NV' },
+  { label: 'DECEMBER', value: 'DM' },
+];
+const selectedMonth = ref(monthOptions[0]);
 </script>
-<style lang=""></style>
+<style></style>

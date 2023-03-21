@@ -14,18 +14,18 @@ import Button from './button.vue';
           class="flex w-full items-center justify-between border-b border-gray-500 py-6 lg:border-none"
         >
           <div class="flex items-center">
-            <router-link to="/">
+            <router-link :to="{ name: 'Home' }">
               <span class="sr-only">Find Me Ski Tickets</span>
               <h1 class="uppercase text-4xl font-black">Find me lift tickets</h1>
             </router-link>
           </div>
           <div class="ml-10 space-x-4">
-            <router-link to="/about" class="inline-block">
+            <router-link :to="{ name: 'About' }" class="inline-block">
               <Button>ABOUT</Button>
             </router-link>
-            <a href="/faq" class="inline-block">
+            <router-link :to="{ name: 'FAQ' }">
               <Button>FAQ</Button>
-            </a>
+            </router-link>
           </div>
         </div>
       </nav>

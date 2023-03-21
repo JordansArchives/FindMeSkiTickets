@@ -1,8 +1,28 @@
 <script setup>
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 import { GetPriceByDay } from '../api/priceByDay.js';
 import Button from '../components/button.vue';
 
-const pricesByDay = GetPriceByDay('March');
+const route = useRoute();
+console.log('query', route.query);
+const month = route.query.month;
+
+const hasValidParams = ref(false);
+const paramsAreValid = () => {
+  // Validate your params here
+
+  return true;
+};
+
+if (paramsAreValid()) {
+  hasValidParams.value = true;
+  // Load the data for the month, age, and loction selected, and then render the page
+
+  const pricesByDay = GetPriceByDay(route.query.month);
+} else {
+  // handle the error gracefully and show an error state
+}
 </script>
 
 <template>
@@ -24,5 +44,9 @@ const pricesByDay = GetPriceByDay('March');
     <a href="https://router.vuejs.org/guide/essentials/navigation.html" target="_blank">
       <Button>If the filters are changed, update the query params</Button>
     </a>
+  </div>
+
+  <div v-if="hasValidParams" class="p-4 flex flex-row gap-4">
+    Our params are valid! Let's build the calendar here.
   </div>
 </template>

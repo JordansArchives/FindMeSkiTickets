@@ -14,7 +14,7 @@
           leave-from-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <ListboxOptions class="listboxbuttonStyle absolute mt-1 max-h-60 w-full overflow-auto">
+          <ListboxOptions class="listboxbuttonStyle absolute mt-1 w-full overflow-auto">
             <ListboxOption
               v-slot="{ active, selected }"
               v-for="option in options"
