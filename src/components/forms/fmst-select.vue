@@ -1,9 +1,9 @@
 <template>
-  <div class="w-96">
+  <div>
     <Listbox v-model="selectedValue" by="value">
-      <div class="relative mt-1">
-        <ListboxButton class="listboxbuttonStyle items-left mt-1 max-h-60 w-full overflow-auto">
-          <span class="flex justify-between truncate text-left pl-2">
+      <div class="relative mb-4">
+        <ListboxButton class="listboxbuttonStyle items-left w-full h-full">
+          <span class="flex justify-between truncate text-left p-2">
             <span>{{ selectedValue.label }}</span>
             <dropIcon class="h-6 w-6" />
           </span>
@@ -14,7 +14,9 @@
           leave-from-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <ListboxOptions class="listboxbuttonStyle absolute mt-1 w-full overflow-auto">
+          <ListboxOptions
+            class="listboxbuttonStyle absolute mt-1 w-full max-h-60 overflow-y-scroll"
+          >
             <ListboxOption
               v-slot="{ active, selected }"
               v-for="option in options"

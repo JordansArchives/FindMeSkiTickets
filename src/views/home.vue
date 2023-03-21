@@ -7,16 +7,13 @@
       </h1>
     </div>
 
-    <div class="flex">
+    <div class="flex pb-16">
       <div class="mx-auto flex-col justify-items-stretch">
         <div class="w-96">
           <FmstSelect v-model="selectedState" :options="stateOptions" />
           <FmstSelect v-model="selectedMonth" :options="monthOptions" />
           <FmstSelect v-model="selectedAge" :options="ageOptions" />
         </div>
-        <!-- <SelectAge /> -->
-        <!-- <SelectMonth /> -->
-        <!-- @TODO: Add the two query params for age and month once you have the select components -->
         <router-link
           :to="{
             path: '/calendar',
