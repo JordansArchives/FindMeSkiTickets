@@ -77,6 +77,11 @@ const selectedValue = ref(props.modelValue);
 watch(props, (newValue) => {
   selectedValue.value = newValue.modelValue;
 });
+
+// Let our parent know when our value changes, via an emit
+watch(selectedValue, (newValue) => {
+  emit('update:modelValue', newValue);
+});
 </script>
 
 <style>

@@ -35,18 +35,14 @@
 import { ref } from 'vue';
 import blackButton from '../components/blackButton.vue';
 import FmstSelect from '../components/forms/fmst-select.vue';
+import validStates from '../api/validStates';
 
 const greet =
   'Let us save you the headache, we find you the most affordable lift tickets in your area!';
 
 const LandingPageUrl = '/assets/LandingPage.png';
 
-const stateOptions = [
-  { label: 'COLORADO', value: 'CO' },
-  { label: 'WYOMING', value: 'WY' },
-  { label: 'UTAH', value: 'UT' },
-  { label: 'MONTANA', value: 'MT' },
-];
+const stateOptions = validStates;
 const selectedState = ref(stateOptions[0]);
 
 const ageOptions = [
